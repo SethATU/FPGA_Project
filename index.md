@@ -5,18 +5,21 @@ tags: fpga vga verilog
 categories: demo
 ---
 
-Add a short welcome message or introduction here. Aim to get the viewer interested in what follows! Guideline: 1 or 2 sentences. 
+For my FPGA Project I decided to attempt to make a moving snippet from a game of Tetris.  
+As this is my first time working with Verilog code it was a bit of a learning curve with a lot of trial and error to get the final project working.  
 
-I am adding a test sentence here at 13:24 on 03/12/24.
-
-## **Template VGA Design**
-### **Project Set-Up**
-Summarise the project set-up and design flow. Include a screenshot of your own set-up, for example see the image of my Project Summary window below. Guideline 1 short paragraph.
-
-
+## **VGA Design**
+### **Project Summarie**
+//Text//
 <img src="https://github.com/SethATU/FPGA_Project/blob/main/docs/assests/images/ProjectSummery.png">
 ### **Template Code**
-Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s).
+I took inspiration from both the VGAStripes and VGAColorCycle examples, I combined the Logic of the Stripes example with the states of the ColorCycle exsample.    
+  
+*//ColorCycle Example//*  
+<img src="https://github.com/SethATU/FPGA_Project/blob/main/docs/assests/images/colorCycle%20snippet.png">  
+  
+*//Stripes Example//*  
+<img src="https://github.com/SethATU/FPGA_Project/blob/main/docs/assests/images/colorStripesSnippet.png">
 ### **Simulation**
 Explain the simulation process. Reference any important details, include a well-selected screenshot of the simulation. Guideline: 1/2 short paragraphs.
 ### **Synthesis**
