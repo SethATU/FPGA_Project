@@ -3,15 +3,29 @@ layout: home
 title: FPGA VGA Driver Project
 tags: fpga vga verilog
 categories: demo
----
+---  
 
-For my FPGA Project I decided to attempt to make a moving snippet from a game of Tetris.  
-As this is my first time working with Verilog code it was a bit of a learning curve with a lot of trial and error to get the final project working.  
+For my FPGA project I built a looping snippet of Tetris that runs on a Basys3 board and displays over VGA  
+A cyan (I) block slides across the top, rotates then drops down into a gap, completes a line and the line is cleared so the blocks above fall down one row  
+This was my first time working with Verilog, so there was a lot of trial and error before the final project worked 
 
-## **VGA Design**
+## **VGA Design**  
+### **Project Setup**  
+The project was created in Vivado for the Basys3's Artix-7 FPGA, using Verilog as the coding language and the Vivado Simulator for simulation  
+The top module is VGATop which connects three blocks:
+- A clock that generates the pixel clock from the board's 100 MHz oscillator
+- VGASync which produces the VGA timing signals and the color module 
+- ColourStripes which decides the colour of each pixel  
+The Basys3_Master constraints file maps the designs ports to the boards clock, reset and VGA connector pins  
+Testbench in the simulation sources drives VGASync and ColourStripes the design flow was:
+- write the Verilog, simulate, synthesise, implement, generate the bitstream and program the board  
+
 ### **Project Summarie**
-//Text//
-//Project Summary Image//  
+Project Summary
+<img width="1639" height="734" alt="image" src="https://github.com/user-attachments/assets/52ec145f-11b5-48cb-8c58-db4206ac2a59" />  
+
+Project Sources  
+<img width="491" height="491" alt="image" src="https://github.com/user-attachments/assets/3330f4c9-95a4-47da-aa63-aac1741cebe1" />
 
 ### **Template Code**
 I took inspiration from both the VGAStripes and VGAColorCycle examples, I combined the Logic of the Stripes example with the states of the ColorCycle exsample.    
