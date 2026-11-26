@@ -28,24 +28,24 @@ Project Sources
 <img width="491" height="491" alt="image" src="https://github.com/user-attachments/assets/3330f4c9-95a4-47da-aa63-aac1741cebe1" />
 
 ### **Template Code**
-I took inspiration from both the VGAStripes and VGAColorCycle examples, I combined the Logic of the Stripes example with the states of the ColorCycle exsample.    
+A VGA monitor draws its picture one pixel at a time, left to right and top to bottom  
+Two sync signals (hsync and vsync) tell the monitor when to start a new line and a new frame  
+The colour of each pixel is sent as red, green and blue The Basys3 provides 4 bits per color which gives 12 bit color   
   
-*//ColorCycle Example//*  
-//ColorCycleSnippet Image//  
-  
-*//Stripes Example//*  
-//ColorStripesSnippet Image//
+In the template VGASync counts through the pixels of each line and the lines of each frame producing the sync pulses along with the row and col of the pixel currently being drawn    
+The color module then only has to what color should the pixel at (col, row) be   
+Its registered on the clock edge and sent to the red, green and blue outputs  
 
-There where a few things that i had to change to make my idea come to life, first I exsperamented with the color stripes to get a static image of the blocks all lined up and then started incoperating the ColorCycle states into my project. The code working by setting a boundry inside the display aread and changibg that areas color on the display to one of my choosing, this is done for each and every bocks row and column 
-//Static Code Image// 
+I was given two examples to work from 
+- ColourCycle is a state machine (BLACK, RED, YELLOW, GREEN, CYAN, BLUE, MAGENTA, WHITE) with a counter, each time the counter reaches COUNT_TO the next state is selected, so the whole screen changes colour
+- ColourStripes has no states, it compares col against ranges 80 pixels wide and picks a color for each range, giving vertical stripes
 
-To make the cyan block move from the top of the screan every clock cycle, slowly towards the right hand side of the screen where the completed line will be deleted and the blocks above will fall down 1 row, I incoperated the states from the ColorCycle example, however after making a few states with the original code that i created i noticed that i was at 500+ lines of code and i was only half way through with the states and thought there had to be a better way to do this without writing a thousand lines of code.
-//Multiple states Images//
 
-I found my solution with functions, Instaed of writing each and ever line over and over in the states, the only thing that would change in the states is the I block as it it the only one moving and the rest are static, This made the code go from 500 lines to around 150 lines
-//Function Code Image//
-//I Block States Image//
-//Static Blocks states Image//
+ColourCycle Example  
+<img width="702" height="525" alt="image" src="https://github.com/user-attachments/assets/5e8a3069-d70f-4a3b-a25e-4b4db0e78ee3" />
+
+ColourStripes Example  
+<img width="540" height="559" alt="image" src="https://github.com/user-attachments/assets/25054a61-544a-48e8-880e-c8910add1f4b" />
 
 ### **Simulation**
 Explain the simulation process. Reference any important details, include a well-selected screenshot of the simulation. Guideline: 1/2 short paragraphs.
